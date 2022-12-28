@@ -4,5 +4,5 @@
 package hotel.reservation.kotlin
 
 fun main() {
-    AdminMenu().adminMenu()
+    MainMenu().menu()
 }

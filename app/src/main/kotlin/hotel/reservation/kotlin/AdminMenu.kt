@@ -6,15 +6,15 @@ class AdminMenu {
 
     private val userInputSize = 1
 
-    fun adminMenu() {
+    fun menu() {
         var userInput: String
-        val scanner = Scanner(System.`in`)
+        val inputScanner = Scanner(System.`in`)
 
         printMenu()
 
         try {
             do {
-                userInput = scanner.nextLine()
+                userInput = inputScanner.nextLine()
 
                 when (userInput.length) {
                     userInputSize -> {
@@ -23,18 +23,18 @@ class AdminMenu {
                             setOf('2') -> println("displayAllRooms()")
                             setOf('3') -> println("displayAllReservations()")
                             setOf('4') -> println("addRoom()")
-                            setOf('5') -> println("MainMenu.printMainMenu()")
+                            setOf('5') -> MainMenu().menu()
                         }
                     }
                     else -> throw StringIndexOutOfBoundsException()
                 }
-            } while (userInput[0] != '5' || userInput.length != 1)
+            } while (userInput[0] != '5')
         } catch (exception: StringIndexOutOfBoundsException) {
             println("Invalid input received. Exiting program...")
         }
     }
 
-    private fun printMenu() = print(
+    private fun printMenu() = println(
         "\nAdmin Menu\n" +
         "--------------------------------------------\n" +
         "1. See all Customers\n" +
@@ -43,6 +43,6 @@ class AdminMenu {
         "4. Add a Room\n" +
         "5. Back to Main Menu\n" +
         "--------------------------------------------\n" +
-        "Please select a number for the menu option:\n"
+        "Please select a number for the menu option:"
     )
 }
